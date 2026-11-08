@@ -1,0 +1,18 @@
+[package]
+name = "waypoints-hmod"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Horizon client mod: waypoints with names and distances in the world, a list screen, death waypoints and /wp."
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+# Pinned, so the same source always builds the same .wasm. The same commit LookAt 0.1.0 was built with.
+horizon-mod-sdk = { git = "https://github.com/horizon-rust/horizon", rev = "56f968e11c7627536cb6a83420caddce7e3acb8f" }
+
+[profile.release]
+opt-level = "s"
+lto = true

@@ -1,0 +1,9 @@
+id = "waypoints_hmod"
+name = "Waypoints (hmod)"
+version = "0.1.0"
+description = "Waypoints: N makes one where you stand, M lists them, /wp names and edits them. Each visible waypoint shows its name and distance in the world, and a death can leave one where you died. A port of Nirokx's Waypoints."
+authors = ["Port of Nirokx's Waypoints"]
+api = "0.1"
+side = "client"
+capabilities = ["game-read", "chat", "render", "ui", "storage", "input"]
+experimental = ["render", "ui", "input"]
