@@ -1,1 +1,18 @@
-
+name: Build waypoints_hmod.hmod
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add wasm target
+        run: rustup update stable && rustup target add wasm32-unknown-unknown
+      - name: Install cargo-horizon-mod (the old version that still builds WASM mods)
+        run: cargo install --git https://github.com/horizon-rust/horizon --rev 56f968e11c7627536cb6a83420caddce7e3acb8f cargo-horizon-mod
+      - name: Build
+        run: cargo horizon-mod build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: waypoints-hmod
+          path: target/horizon-mod/waypoints_hmod.hmod
